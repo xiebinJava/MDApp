@@ -28,7 +28,7 @@ public class LoginActivity extends BaseActivity {
     //添加点击返回箭头事件
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             finish();
 
             return true;
