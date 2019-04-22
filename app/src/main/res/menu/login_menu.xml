@@ -10,8 +10,10 @@
         app:showAsAction="always"
         android:title="b" />
     <item
+        android:id="@+id/menu_cart"
         android:icon="@drawable/ic_shopping_cart_withe_24dp"
         app:showAsAction="always"
+        app:actionProviderClass="com.example.xiebin.mymdapp.widget.toollbar.BadgeActionProvider"
         android:title="a" />
 
     <item

@@ -2,6 +2,8 @@ package com.example.xiebin.mymdapp;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -10,8 +12,11 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.xiebin.mymdapp.adapter.ViewPagerAdapter;
 import com.example.xiebin.mymdapp.base.BaseActivity;
@@ -20,6 +25,8 @@ import com.example.xiebin.mymdapp.fragment.CategoryFragment;
 import com.example.xiebin.mymdapp.fragment.HomeFragment;
 import com.example.xiebin.mymdapp.fragment.MessageFragment;
 import com.example.xiebin.mymdapp.util.BottomNavigationViewHelper;
+import com.example.xiebin.mymdapp.widget.badgeView.BGABadgeView;
+import com.example.xiebin.mymdapp.widget.badgeView.BGABadgeable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +37,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private MenuItem menuItem;
     private ViewPagerAdapter viewPagerAdapter;
     private ViewPager mViewPage;
+    private BGABadgeView bvHomeSearchCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +47,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         mBottomNavigationBar = findViewById(R.id.bottomNavigationView);
         mViewPage = findViewById(R.id.vp_main);
+
         BottomNavigationViewHelper.disableShiftMode(mBottomNavigationBar);
         setSupportActionBar(toolbar);
         setViewPager(mViewPage);
@@ -50,6 +59,20 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        BottomNavigationMenuView itemView = (BottomNavigationMenuView) mBottomNavigationBar.getChildAt(0);
+        BottomNavigationItemView tab = (BottomNavigationItemView) itemView.getChildAt(2);
+        View badge = LayoutInflater.from(this).inflate(R.layout.menu_badge, itemView, false);
+        bvHomeSearchCart = badge.findViewById(R.id.bv_home_search_cart);
+        bvHomeSearchCart.getBadgeViewHelper().setBadgePaddingDp(4);
+//        bvHomeSearchCart.getBadgeViewHelper().setBadgeBgColorInt(getResources().getColor(R.color.col_d63030));
+        bvHomeSearchCart.showCirclePointBadge();
+
+        bvHomeSearchCart.showTextBadge("99+");
+
+
+        tab.addView(badge);
+
     }
 
     private void setViewPager(final ViewPager mViewPage) {
@@ -92,16 +115,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.home) {
                     // on favorites clicked
-                    mViewPage.setCurrentItem(0,false);
+                    mViewPage.setCurrentItem(0, false);
                     return true;
-                }else if (item.getItemId() == R.id.categories){
-                    mViewPage.setCurrentItem(1,false);
+                } else if (item.getItemId() == R.id.categories) {
+                    mViewPage.setCurrentItem(1, false);
                     return true;
-                }else if (item.getItemId() == R.id.message){
-                    mViewPage.setCurrentItem(2,false);
+                } else if (item.getItemId() == R.id.message) {
+                    mViewPage.setCurrentItem(2, false);
                     return true;
-                }else if (item.getItemId() == R.id.account){
-                    mViewPage.setCurrentItem(3,false);
+                } else if (item.getItemId() == R.id.account) {
+                    mViewPage.setCurrentItem(3, false);
                     return true;
                 }
                 return false;
