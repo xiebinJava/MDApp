@@ -33,21 +33,23 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         showLoading();
-        NetClient netClient = new NetClient(this.getActivity());
-        netClient.get("https://www.fs.com/index.php?handler=index&request_action=top_categories_new&version=2.2.2&modules=phone&lang=en&currency=USD&app_country=US",null, new BaseJsonRes() {
-
-            @Override
-            public void onMySuccess(String data) {
-                showContentView();
-                Log.e("xiebin",data);
-                setData();
-            }
-
-            @Override
-            public void onMyFailure() {
-                showError();
-            }
-        });
+        showContentView();
+        setData();
+//        NetClient netClient = new NetClient(this.getActivity());
+//        netClient.get("https://www.fs.com/index.php?handler=index&request_action=top_categories_new&version=2.2.2&modules=phone&lang=en&currency=USD&app_country=US",null, new BaseJsonRes() {
+//
+//            @Override
+//            public void onMySuccess(String data) {
+//                showContentView();
+//                Log.e("xiebin",data);
+//                setData();
+//            }
+//
+//            @Override
+//            public void onMyFailure() {
+//                showError();
+//            }
+//        });
     }
 
     private void setData() {

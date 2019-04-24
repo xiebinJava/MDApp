@@ -8,20 +8,39 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:fitsSystemWindows="true"
+        android:layout_height="200dp">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            style="@style/MyToolbar"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar_layout"
+            android:fitsSystemWindows="true"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:subtitleTextAppearance="@style/ToolbarTextAppearance.Subtitle"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title="Login"
-            app:titleTextAppearance="@style/ToolbarTextAppearance.Title" />
+            android:layout_height="match_parent"
+            app:contentScrim="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
+
+            <ImageView
+                android:fitsSystemWindows="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/contact_us_united_kingdom"
+                app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:subtitleTextAppearance="@style/ToolbarTextAppearance.Subtitle"
+                app:title="product detail"
+                app:titleTextAppearance="@style/ToolbarTextAppearance.Title" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
+
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -119,5 +138,6 @@
                 android:text="aaaaaaaaaaaaa" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+
 
 </android.support.design.widget.CoordinatorLayout>
