@@ -20,12 +20,15 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
 
-            <ImageView
+
+
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner_product"
                 android:fitsSystemWindows="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/contact_us_united_kingdom"
                 app:layout_collapseMode="parallax" />
 
             <android.support.v7.widget.Toolbar

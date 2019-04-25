@@ -25,6 +25,7 @@ import com.example.xiebin.mymdapp.fragment.CategoryFragment;
 import com.example.xiebin.mymdapp.fragment.HomeFragment;
 import com.example.xiebin.mymdapp.fragment.MessageFragment;
 import com.example.xiebin.mymdapp.util.BottomNavigationViewHelper;
+import com.example.xiebin.mymdapp.widget.DimenTool;
 import com.example.xiebin.mymdapp.widget.badgeView.BGABadgeView;
 import com.example.xiebin.mymdapp.widget.badgeView.BGABadgeable;
 
@@ -70,7 +71,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         bvHomeSearchCart.showTextBadge("99+");
 
-
+        DimenTool.main(null);
         tab.addView(badge);
 
     }
